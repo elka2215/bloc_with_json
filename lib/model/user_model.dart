@@ -1,7 +1,5 @@
-import 'package:meta/meta.dart';
-import 'dart:convert';
-
 class User {
+  /// модлька обычная, тут много не нужных данных , скажеш не хотел парится пожтому все данные пришли как есть
   User({
     required this.id,
     required this.name,

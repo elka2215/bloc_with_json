@@ -10,15 +10,21 @@ class UserBloc extends Bloc<UserEvent, UserStates> {
   UserBloc(this.userRepository) : super(UserEmptyStates()) {
     on<UserLoadEvent>((event, emit) async {
       emit(UserLoadingStates());
+
+      /// сначала эмитим загрузку
       try {
+        /// потом оптравлем запрос
         final List<User> _loadedUserList = await userRepository.getAllUsers();
         emit(UserLoadedStates(loadedUser: _loadedUserList));
+
+        /// после эмитим и отправляем наш ответ от сервера в модельку
       } catch (_) {
         emit(UserErrorStates());
       }
     });
 
     on<UserClearEvent>((event, emit) async {
+      /// это жай если ошибка какая то
       emit(UserErrorStates());
     });
   }

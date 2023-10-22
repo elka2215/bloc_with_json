@@ -17,16 +17,20 @@ class ActionsButtons extends StatelessWidget {
           onPressed: () {
             userBloc.add(UserLoadEvent());
           },
-          child: Text('load'),
-          style: TextButton.styleFrom(primary: Colors.white, backgroundColor: Colors.green),
+          child: const Text('load'),
+          style: TextButton.styleFrom(
+              primary: Colors.white, backgroundColor: Colors.green),
         ),
-        SizedBox(width: 12,),
+        const SizedBox(
+          width: 12,
+        ),
         TextButton(
           onPressed: () {
             userBloc.add(UserClearEvent());
           },
-          child: Text('clear'),
-          style: TextButton.styleFrom(backgroundColor: Colors.red, primary: Colors.white),
+          child: const Text('clear'),
+          style: TextButton.styleFrom(
+              backgroundColor: Colors.red, primary: Colors.white),
         ),
       ],
     );
